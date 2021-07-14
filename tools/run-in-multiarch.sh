@@ -6,9 +6,6 @@ bash /opt/tools/install-docker.sh
 
 uname -a
 
-docker -version
-docker --daemon
-
  # 运行内层
 docker run \
     -v /opt/export:/opt/export \

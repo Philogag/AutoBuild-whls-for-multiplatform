@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 apt-get update
 apt-get -y install curl software-properties-common
@@ -9,3 +9,6 @@ add-apt-repository "deb [arch=${CORE}] https://download.docker.com/linux/ubuntu 
 
 apt-get update
 apt-get install -y docker-ce
+
+docker --version
+docker --daemon
