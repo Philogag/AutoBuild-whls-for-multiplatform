@@ -6,11 +6,23 @@ services:
 before_install:
   - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
+
 # 构建版本需求
-env:
-  - CORE=amd64 PY=3.7 LIB=pyhdfs
-  - CORE=amd64 PY=3.8 LIB=pyhdfs
-  - CORE=amd64 PY=3.9 LIB=pyhdfs
+# 交叉所有变量
+
+# 调用 ./builds 的脚本
+# 文件名为 ${LIB}.sh
+LIB:
+  - pyhdfs
+# see tags on docker image: multiarch/ubuntu-core:${CORE}-focal
+# https://hub.docker.com/r/multiarch/ubuntu-core/tags?page=1&ordering=last_updated&name=focal
+CORE: 
+  - amd64
+  - arm64
+# see tags on docker image: python:${PY}-buster
+# 
+PY:   
+  - 3.8
 
 # 运行构建调度脚本
 script:
@@ -21,10 +33,10 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "philogag"
   - git config --local user.email "philogag@qq.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$LIB-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key: ${GITHUB_OAUTH_TOKEN}
-  file: "/opt/export/*.whl"
+  file: "/opt/export/${BUILD_OUTPUT}"
   skip_cleanup: true

@@ -18,3 +18,8 @@ docker run -it \
     --privileged \
     python:${PY}-buster \
     bash /opt/tools/run-in-builder.sh
+
+OUTPUT=`ls /opt/export | sed 's/ /\n/g' | grep whl | head -n 1` 
+BUILD_OUTPUT=${OUTPUT%*.whl}.${PY}.${CORE}.whl
+mv /opt/export/$OUTPUT /opt/export/$BUILD_OUTPUT 
+echo $BUILD_OUTPUT
