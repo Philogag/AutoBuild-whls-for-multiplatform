@@ -4,12 +4,16 @@
 
 docker run -it \
     -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /usr/bin/docker:/usr/bin/docker \
     -v /opt/export:/opt/export \
     -v $PWD/tools:/opt/tools \
     -v $PWD/builds:/opt/builds \
     -e CORE=${CORE} \
     -e PY=${PT}     \
     -e LIB=${LIB}   \
+    -u root \
+    --rm \
+    --privileged \
     --name=multiarch-runner \
     multiarch/ubuntu-core:${CORE}-focal \
     bash /opt/tools/run-in-multiarch.sh
