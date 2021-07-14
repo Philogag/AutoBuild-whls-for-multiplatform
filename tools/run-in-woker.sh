@@ -19,8 +19,6 @@ docker run -itd \
     --privileged \
     --name=multiarch-runner \
     multiarch/ubuntu-core:${CORE}-bionic \
-    /sbin/init
-# enable systemctl
-
-docker exec -it multiarch-runner \
     bash /opt/tools/run-in-multiarch.sh
+
+    
