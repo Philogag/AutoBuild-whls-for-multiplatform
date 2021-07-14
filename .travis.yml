@@ -6,20 +6,10 @@ services:
 before_install:
   - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
-
 # 构建版本需求
-# 交叉所有变量
-
-# CORE see tags on docker image: multiarch/ubuntu-core:(?)-focal
-# https://hub.docker.com/r/multiarch/ubuntu-core/tags?page=1&ordering=last_updated&name=focal
-
-# PY see tags on docker image: python:(?)-buster
-# https://hub.docker.com/_/python?tab=tags&page=1&ordering=last_updated&name=buster
 env: 
-  global:
-    - LIB=pyhdfs
-  - CORE=amd64 PY=3.8
-  - CORE=arm64 PY=3.8
+  - CORE=amd64 PY=3.8 LIB=pyhdfs
+  - CORE=arm64 PY=3.8 LIB=pyhdfs
 
 # 运行构建调度脚本
 script:
