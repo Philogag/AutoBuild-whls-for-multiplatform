@@ -7,7 +7,7 @@ ln -s $PWD/tools /opt/tools
 ln -s $PWD/builds /opt/builds
 ls 
 
-docker run -itd \
+docker run -it \
     -v /opt/export:/opt/export \
     -v /opt/tools:/opt/tools \
     -v /opt/builds:/opt/builds \
