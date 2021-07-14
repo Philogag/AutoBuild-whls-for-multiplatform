@@ -8,7 +8,6 @@ ln -s $PWD/builds /opt/builds
 ls 
 
 docker run -it \
-    -v /var/run/docker.sock:/var/run/docker.sock \
     -v /opt/export:/opt/export \
     -v /opt/tools:/opt/tools \
     -v /opt/builds:/opt/builds \
