@@ -2,8 +2,9 @@
 # 中间层
 
 echo Install docker-cli
-bash /opt/tools/install-docker.sh 1> /dev/null 2> /dev/null
+bash /opt/tools/install-docker.sh # 1> /dev/null 2> /dev/null
 service docker start
+service docker status
 docker version
 echo Done.
 

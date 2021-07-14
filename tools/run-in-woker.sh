@@ -3,8 +3,8 @@
 
 echo $PWD
 
-ln -s $PWD/tools /opt/tools
-ln -s $PWD/builds /opt/builds
+ln -s $PWD/tools /opt/
+ln -s $PWD/builds /opt/
 ls 
 
 docker run -it \
