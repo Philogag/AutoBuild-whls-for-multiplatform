@@ -9,6 +9,8 @@ ls /opt/builds
  # 运行内层
 docker run -it \
     -v /opt/export:/opt/export \
+    -v /opt/export:/opt/export \
+    -v /opt/tools:/opt/tools \
     -v /opt/builds:/opt/builds \
     python:${PY}-buster \
     cd /opt/builds && bash ./${LIB}.sh
