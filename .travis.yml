@@ -8,7 +8,9 @@ before_install:
 
 # 构建版本需求
 env:
-  - CORE=amd64 PY=3.8.9 LIB=pyhdfs
+  - CORE=amd64 PY=3.7 LIB=pyhdfs
+  - CORE=amd64 PY=3.8 LIB=pyhdfs
+  - CORE=amd64 PY=3.9 LIB=pyhdfs
 
 # 运行构建调度脚本
 script:
