@@ -7,7 +7,7 @@ ln -s $PWD/tools /opt/tools
 ln -s $PWD/builds /opt/builds
 ls 
 
-docker run -it \
+docker run -itd \
     -v /opt/export:/opt/export \
     -v /opt/tools:/opt/tools \
     -v /opt/builds:/opt/builds \
@@ -19,4 +19,8 @@ docker run -it \
     --privileged \
     --name=multiarch-runner \
     multiarch/ubuntu-core:${CORE}-focal \
+    /sbin/init
+# enable systemctl
+
+docker exec -it multiarch-runner \
     bash /opt/tools/run-in-multiarch.sh
