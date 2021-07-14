@@ -4,10 +4,11 @@
 
 docker run \
     -v /opt/export:/opt/export \
-    -v ./tools:/opt/tools \
-    -v ./builds:/opt/builds \
+    -v $PWD/tools:/opt/tools \
+    -v $PWD/builds:/opt/builds \
     -e CORE=${CORE} \
     -e PY=${PT}     \
     -e LIB=${LIB}   \
-    multiarch/ubuntu-core:{CORE}-focal \
+    --name=multiarch-runner \
+    multiarch/ubuntu-core:${CORE}-focal \
     bash /opt/tools/run-in-multiarch.sh

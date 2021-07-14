@@ -1,10 +1,11 @@
 #!/bin/bash
 
-apt-get install lsb-core -y
+sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
-apt-get -y install curl software-properties-common apt-transport-https
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+apt-get update
+apt-get -y install curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb [arch=${CORE}] https://download.docker.com/linux/ubuntu focal stable"
 
 apt-get update
-apt-get install docker-ce
+apt-get install -y docker-ce

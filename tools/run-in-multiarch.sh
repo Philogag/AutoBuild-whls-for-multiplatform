@@ -4,6 +4,8 @@
 
 bash /opt/tools/install-docker.sh
 
+uname -a
+
 docker -version
 docker --daemon
 

@@ -12,7 +12,7 @@ env:
 
 # 运行构建调度脚本
 script:
-  - bash ./tools/run-in-woker.sh
+  - ./tools/run-in-woker.sh
 
 # 上传结果到 github release
 before_deploy:
