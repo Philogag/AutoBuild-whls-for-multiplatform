@@ -3,12 +3,12 @@
 
 echo Install docker-cli
 bash /opt/tools/install-docker.sh 1> /dev/null 2> /dev/null
-dockerd &
+dockerd --storage-driver overlay &
 docker version
 echo Done.
 
 uname -a
-ls /opt/builds
+ls /opt/
  # 运行内层
 docker run -it \
     -v /opt/export:/opt/export \
@@ -17,7 +17,6 @@ docker run -it \
     -w /opt/builds \
     -e LIB=${LIB}  \
     --rm \
-    --privileged \
     python:${PY}-buster \
     bash /opt/tools/run-in-builder.sh
 
