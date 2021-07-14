@@ -2,7 +2,7 @@
 
 # sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
-export DEBIAN_FRONTEND=noninteractive
+# export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
 apt-get -y install curl software-properties-common

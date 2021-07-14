@@ -4,12 +4,11 @@
 
 docker run -it \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /usr/bin/docker:/usr/bin/docker \
     -v /opt/export:/opt/export \
     -v $PWD/tools:/opt/tools \
     -v $PWD/builds:/opt/builds \
     -e CORE=${CORE} \
-    -e PY=${PT}     \
+    -e PY=${PY}     \
     -e LIB=${LIB}   \
     -u root \
     --rm \
