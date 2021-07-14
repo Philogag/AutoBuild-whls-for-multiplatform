@@ -1,9 +1,11 @@
 #/bin/bash
-
-# 中间层
-
-bash /opt/tools/install-docker.sh
+# 内层
 
 uname -a
-ls /opt/builds
- # 运行内层
+cd /opt/builds
+ls .
+
+echo ${LIB}
+
+bash $LIB.sh
+

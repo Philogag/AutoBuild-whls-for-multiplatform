@@ -1,6 +1,6 @@
 #/bin/bash
-
 # 中间层
+
 
 bash /opt/tools/install-docker.sh
 
@@ -12,5 +12,10 @@ docker run -it \
     -v /opt/export:/opt/export \
     -v /opt/tools:/opt/tools \
     -v /opt/builds:/opt/builds \
+    -w /opt/builds \
+    -e LIB=${LIB}  \    
+    -u root \
+    --rm \
+    --privileged \
     python:${PY}-buster \
-    cd /opt/builds && bash ./${LIB}.sh
+    bash /opt/run-in-builder.sh
