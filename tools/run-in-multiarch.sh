@@ -4,6 +4,7 @@
 echo Install docker-cli
 bash /opt/tools/install-docker.sh 1> /dev/null 2> /dev/null
 dockerd --storage-driver overlay &
+sleep 5
 docker version
 echo Done.
 
