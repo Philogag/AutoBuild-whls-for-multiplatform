@@ -18,7 +18,7 @@ docker run -itd \
     --rm \
     --privileged \
     --name=multiarch-runner \
-    multiarch/ubuntu-core:${CORE}-focal \
+    multiarch/ubuntu-core:${CORE}-bionic \
     /sbin/init
 # enable systemctl
 
