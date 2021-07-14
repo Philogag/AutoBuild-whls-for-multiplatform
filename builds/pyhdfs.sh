@@ -13,5 +13,6 @@ cd $folder
 
 python3 setup.py bdist_wheel
 
-mkdir /opt/export/
 cp ./dist/*.whl /opt/export/
+
+ls /opt/export/
