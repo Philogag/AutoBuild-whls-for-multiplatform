@@ -6,7 +6,6 @@ bash /opt/tools/install-docker.sh
 
 uname -a
 ls /opt/builds
-docker --help
  # 运行内层
 docker run -it \
     -v /opt/export:/opt/export \
@@ -18,4 +17,4 @@ docker run -it \
     --rm \
     --privileged \
     python:${PY}-buster \
-    bash /opt/run-in-builder.sh
+    bash /opt/tools/run-in-builder.sh
