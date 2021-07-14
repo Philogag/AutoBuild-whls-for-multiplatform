@@ -3,6 +3,7 @@
 
 echo Install docker-cli
 bash /opt/tools/install-docker.sh 1> /dev/null 2> /dev/null
+docker daemon &
 docker version
 echo Done.
 
