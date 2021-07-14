@@ -10,5 +10,5 @@ add-apt-repository "deb [arch=${CORE}] https://download.docker.com/linux/ubuntu 
 apt-get update
 apt-get install -y docker-ce
 
-docker --version
-docker --daemon
+service docker start
+docker version

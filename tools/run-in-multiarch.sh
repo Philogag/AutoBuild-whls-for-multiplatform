@@ -7,7 +7,7 @@ bash /opt/tools/install-docker.sh
 uname -a
 
  # 运行内层
-docker run \
+docker run -it \
     -v /opt/export:/opt/export \
     -v /opt/builds:/opt/builds \
     python:${PY}-buster \
