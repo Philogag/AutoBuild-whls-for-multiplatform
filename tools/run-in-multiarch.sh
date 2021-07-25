@@ -25,14 +25,3 @@ docker run -it \
     --rm \
     python:${PY}-buster \
     bash /opt/tools/run-in-builder.sh
-
-files=`ls /opt/export | sed 's/ /\n/g' | grep whl `
-for file in ${files[@]}
-do
-    targ=${file%*.whl}.${PY}.${CORE}.whl
-    mv /opt/export/$file /opt/export/$targ 
-done
-
-echo -e "\n\nBuild Output:"
-ls /opt/export
-echo -e "\n\nB"

@@ -7,7 +7,7 @@ ln -s $PWD/tools /opt/
 ln -s $PWD/builds /opt/
 # ls 
 
-sed -i s/'${CORE}'/amd64/g ./tools/worker.Dockerfile
+sed -i s/'${CORE}'/${CORE}/g ./tools/worker.Dockerfile
 docker build -f ./tools/worker.Dockerfile -t worker .
 
 docker run -it \
@@ -24,4 +24,13 @@ docker run -it \
     worker \
     sh /opt/tools/run-in-multiarch.sh
 
-    
+files=`ls /opt/export | sed 's/ /\n/g' | grep whl `
+for file in ${files[@]}
+do
+    targ=${file%*.whl}.${PY}.${CORE}.whl
+    mv /opt/export/$file /opt/export/$targ
+done
+
+echo -e "\n\nBuild Output:"
+ls /opt/export
+echo -e "\n\nB"
