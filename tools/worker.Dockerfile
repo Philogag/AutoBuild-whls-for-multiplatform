@@ -1,4 +1,4 @@
-FROM multiarch/alpine:amd64-edge
+FROM multiarch/alpine:${CORE}-edge
 
 VOLUME [ “/sys/fs/cgroup” ]
 
