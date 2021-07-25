@@ -8,7 +8,7 @@
 运行结构
 + Travis-CI物理机
     + run-in-woker.sh
-    + docker : multiarch/ubuntu-core
+    + docker : multiarch/alpine
         + install-docker-cli
         + run-in-multiarch.sh
         + docker : python
