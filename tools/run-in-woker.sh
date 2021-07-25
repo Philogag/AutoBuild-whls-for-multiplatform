@@ -3,7 +3,6 @@
 
 echo $PWD
 
-sestatus
 ln -s $PWD/tools /opt/
 ln -s $PWD/builds /opt/
 # ls 

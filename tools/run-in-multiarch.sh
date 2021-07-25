@@ -2,7 +2,7 @@
 # 中间层
 
 echo Install docker
-sestatus
+
 rc-status -a
 rc-update add docker default
 # sh /opt/tools/install-docker.sh # 1> /dev/null 2> /dev/null
