@@ -1,19 +1,20 @@
 language: bash
 
-services:
-  - docker
+# services:
+#   - docker
 
-before_install:
-  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# before_install:
+#   - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 # 构建版本需求
 env: 
-  - CORE=amd64 PY=3.8 LIB=pyhdfs
-  - CORE=arm64 PY=3.8 LIB=pyhdfs
+  - CORE=amd64 PY=3.7 LIB=pytorch
+#   - CORE=arm64 PY=3.8 LIB=pyhdfs
 
 # 运行构建调度脚本
 script:
-  - ./tools/run-in-woker.sh
+#   - ./tools/run-in-woker.sh
+  - ./builds/pytorch.sh
 
 # 上传结果到 github release
 before_deploy:
