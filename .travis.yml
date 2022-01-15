@@ -14,7 +14,7 @@ env:
 # 运行构建调度脚本
 script:
 #   - ./tools/run-in-woker.sh
-  - ./builds/pytorch.sh
+  - chmod +x ./builds/pytorch.sh && ./builds/pytorch.sh
 
 # 上传结果到 github release
 before_deploy:
