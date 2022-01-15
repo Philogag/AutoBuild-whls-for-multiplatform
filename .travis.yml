@@ -13,11 +13,15 @@ env:
 
 # 运行构建调度脚本
 script:
+  - mkdir /opt/export/
+  - chmod +x ./builds/*.sh
+  - chmod +x ./tools/*.sh
 #   - ./tools/run-in-woker.sh
-  - chmod +x ./builds/pytorch.sh && ./builds/pytorch.sh
+  - ./builds/pytorch.sh
 
 # 上传结果到 github release
 before_deploy:
+  - ./tools/split.sh
   # Set up git user name and tag this commit
   - git config --local user.name "philogag"
   - git config --local user.email "philogag@qq.com"
@@ -28,6 +32,6 @@ deploy:
   provider: releases
   api_key: ${GITHUB_OAUTH_TOKEN}
   file_glob: true
-  file: /opt/export/zips/*
+  file: /opt/export/*
   skip_cleanup: true
   overwrite: true
